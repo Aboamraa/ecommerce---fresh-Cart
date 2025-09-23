@@ -1,0 +1,81 @@
+{
+    "status": "success",
+    "numOfCartItems": 2,
+    "cartId": "68c7f08a9870426a391bec20",
+    "data": {
+        "_id": "68c7f08a9870426a391bec20",
+        "cartOwner": "68bed827e2dcc715e4dc176b",
+        "products": [
+            {
+                "count": 3,
+                "_id": "68c7fe799870426a391d5755",
+                "product": {
+                    "subcategory": [
+                        {
+                            "_id": "6407f243b575d3b90bf957ac",
+                            "name": "Men's Clothing",
+                            "slug": "men's-clothing",
+                            "category": "6439d5b90049ad0b52b90048"
+                        }
+                    ],
+                    "_id": "6428dfa0dc1175abc65ca067",
+                    "title": "Logo T-Shirt Green",
+                    "quantity": 111,
+                    "imageCover": "https://ecommerce.routemisr.com/Route-Academy-products/1680400287654-cover.jpeg",
+                    "category": {
+                        "_id": "6439d5b90049ad0b52b90048",
+                        "name": "Men's Fashion",
+                        "slug": "men's-fashion",
+                        "image": "https://ecommerce.routemisr.com/Route-Academy-categories/1681511865180.jpeg"
+                    },
+                    "brand": {
+                        "_id": "64089dc924b25627a25315a8",
+                        "name": "Jack & Jones",
+                        "slug": "jack-and-jones",
+                        "image": "https://ecommerce.routemisr.com/Route-Academy-brands/1678286281363.png"
+                    },
+                    "ratingsAverage": 2,
+                    "id": "6428dfa0dc1175abc65ca067"
+                },
+                "price": 744
+            },
+            {
+                "count": 1,
+                "_id": "68c89ce8d39a2b719b5ef92c",
+                "product": {
+                    "subcategory": [
+                        {
+                            "_id": "6407f1bcb575d3b90bf95797",
+                            "name": "Women's Clothing",
+                            "slug": "women's-clothing",
+                            "category": "6439d58a0049ad0b52b9003f"
+                        }
+                    ],
+                    "_id": "6428eb43dc1175abc65ca0b3",
+                    "title": "Woman Shawl",
+                    "quantity": 220,
+                    "imageCover": "https://ecommerce.routemisr.com/Route-Academy-products/1680403266739-cover.jpeg",
+                    "category": {
+                        "_id": "6439d58a0049ad0b52b9003f",
+                        "name": "Women's Fashion",
+                        "slug": "women's-fashion",
+                        "image": "https://ecommerce.routemisr.com/Route-Academy-categories/1681511818071.jpeg"
+                    },
+                    "brand": {
+                        "_id": "64089bbe24b25627a253158b",
+                        "name": "DeFacto",
+                        "slug": "defacto",
+                        "image": "https://ecommerce.routemisr.com/Route-Academy-brands/1678285758109.png"
+                    },
+                    "ratingsAverage": 4.8,
+                    "id": "6428eb43dc1175abc65ca0b3"
+                },
+                "price": 149
+            }
+        ],
+        "createdAt": "2025-09-15T10:55:06.450Z",
+        "updatedAt": "2025-09-15T23:10:32.908Z",
+        "__v": 8,
+        "totalCartPrice": 2381
+    }
+}
