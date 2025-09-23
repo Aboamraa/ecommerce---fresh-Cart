@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-export default function page() {
+export default function Page() {
   const router = useRouter();
   const form = useForm<ForgetPasswordType>({
     defaultValues: {

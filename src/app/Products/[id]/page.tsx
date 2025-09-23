@@ -1,11 +1,10 @@
-import React from "react";
-import ProductDetails from "./../../_components/ProductDetails/ProductDetails";
 import { getProductDetails, getRelatedProducts } from "@/api/Product.api";
 import { ProductType } from "@/types/Product.types";
 import "swiper/css";
+import ProductDetails from "./../../_components/ProductDetails/ProductDetails";
 import ProductsSwiper from "./../../_components/ProductsSwiper/ProductsSwiper";
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
   const { id } = await params;
   // console.log(typeof params.id);
 

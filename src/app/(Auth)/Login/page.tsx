@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { ClipLoader } from "react-spinners";
-export default function page() {
+export default function Page() {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<LoginType>({

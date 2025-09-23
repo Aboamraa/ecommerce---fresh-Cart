@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "../loading";
 import OrderMainRow from "../_components/OrderMainRow/OrderMainRow";
 
-export default function page() {
+export default function Page() {
   const [userOrders, setUserOrders] = useState<OrderType[] | null>(null);
   useEffect(() => {
     handelGetOrders();

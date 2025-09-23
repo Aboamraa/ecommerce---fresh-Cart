@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -8,16 +9,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useState } from "react";
 import { registerScheme, RegisterType } from "@/scheme/scheme";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { toast } from "sonner";
 import { Lock, LockOpen } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
-export default function page() {
+export default function Page() {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const form = useForm<RegisterType>({
     defaultValues: {

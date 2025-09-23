@@ -9,7 +9,7 @@ import Loading from "../loading";
 import Link from "next/link";
 import { toast } from "sonner";
 //TODO::Handel Loading state when clear cart
-export default function page() {
+export default function Page() {
   // const [cartProducts, setCartProducts] = useState<
   //   CartProductElementType[] | null
   // >(null);

@@ -13,12 +13,11 @@ import { resetPasswordScheme, ResetPasswordType } from "@/scheme/scheme";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { Lock, LockOpen } from "lucide-react";
-import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-export default function page() {
+export default function Page() {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const form = useForm<ResetPasswordType>({
     defaultValues: {

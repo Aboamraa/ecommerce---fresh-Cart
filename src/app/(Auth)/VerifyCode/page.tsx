@@ -10,20 +10,15 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
-  loginScheme,
-  LoginType,
   verifyCodeScheme,
-  VerifyCodeType,
+  VerifyCodeType
 } from "@/scheme/scheme";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { Lock, LockOpen } from "lucide-react";
-import Link from "next/link";
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-export default function page() {
+export default function Page() {
   const form = useForm<VerifyCodeType>({
     defaultValues: {
       email: "",

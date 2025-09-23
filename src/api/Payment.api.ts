@@ -26,9 +26,11 @@ async function cashPayment(
     );
     console.log("response from cash payment", response);
     return await response.json();
-  } catch (error: any) {
+  } catch (error) {
     console.log("error from cash payment", error);
-    throw new Error(error.message);
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    }
   }
 }
 //Todo::Complete the online Payment logic
@@ -59,4 +61,3 @@ async function onlinePayment(cartId: string, shippingDetails: checkoutType) {
 }
 
 export { cashPayment, onlinePayment };
-
