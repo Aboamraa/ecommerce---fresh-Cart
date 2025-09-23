@@ -5,6 +5,7 @@ import Navbar from "./_components/Navbar/Navbar";
 import Footer from "./_components/Footer/Footer";
 import { Toaster } from "sonner";
 import ClientLayout from "@/ClientLayout/ClientLayout";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,15 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ClientLayout>
-          <Navbar />
-          {children}
-          <Toaster position="top-center" richColors />
-          <Footer />
+          <ThemeProvider enableSystem attribute={"class"}>
+            <Navbar />
+            {children}
+            <Toaster position="top-center" richColors />
+            <Footer />
+          </ThemeProvider>
         </ClientLayout>
       </body>
     </html>

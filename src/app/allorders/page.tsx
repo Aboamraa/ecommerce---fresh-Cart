@@ -41,14 +41,25 @@ export default function Page() {
   }
   return (
     <>
-      <div className="min-h-screen container my-12 py-8 bg-gray-200 border-[1px] shadow-lg border-gray-300 rounded-lg space-y-6">
-        {userOrders.map((order)=>{return <div key={order.id} className="border-b-2 border-gray-400 pb-4">
-
-          <OrderMainRow  order={order} shippingAddress={order.shippingAddress}  />
-
-        </div> 
+      <div className="min-h-screen container my-12 py-8 bg-card border-2 shadow-lg border-card-foreground/60 rounded-lg space-y-6">
+        {userOrders.map((order, index) => {
+          return (
+            <div
+              key={order.id}
+              className={`${
+                userOrders.length > index + 1 &&
+                "border-b-2 border-b-card-foreground/60 pb-4"
+              } `}
+            >
+              <OrderMainRow
+              
+                order={order}
+                shippingAddress={order.shippingAddress}
+              />
+            </div>
+          );
         })}
-        
+
         {/* <Collapsible>
           <div className="order-container flex justify-between px-8 rounded-xl bg-amber-200">
             <div className="left-side flex gap-4 items-center">

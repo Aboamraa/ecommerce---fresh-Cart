@@ -136,6 +136,10 @@
   .btn-main {
     @apply bg-main-green text-white cursor-pointer rounded-lg px-6 py-2 border-2 border-main-green transition hover:bg-transparent hover:text-main-green;
   }
+  .main-card-style {
+    @apply bg-card border-[0.5px] border-card-foreground/60 shadow shadow-primary;
+    @apply transition hover:bg-secondary
+  }
 }
 
 @utility container {

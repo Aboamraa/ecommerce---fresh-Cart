@@ -8,12 +8,13 @@ import playStoreImg from "@/../public/images/get-google-play.png";
 import appStoreImg from "@/../public/images/get-apple-store.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 export default function Footer() {
   return (
     <footer className="bg-secondary">
       <div className="container py-5">
         <h3>Get The FreshCart app</h3>
-        <p className="text-gray-500/70 mt-3">
+        <p className="text-muted-foreground mt-3">
           We will send you a link, open it on your phone to download the app
         </p>
         <div className="flex justify-between items-center gap-12 my-8 ">
@@ -24,7 +25,8 @@ export default function Footer() {
           />
           <Button variant={"main"}>Share App Link</Button>
         </div>
-        <div className="flex justify-between items-center w-full p-6 border-b-2 border-t-2 border-gray-300 mb-6">
+        <Separator />
+        <div className="flex justify-between items-center w-full p-6 ">
           <div className="left-dev flex gap-2.5 items-center">
             <p>Payment partners</p>
             <Image src={amazonPayImg} alt="amazon pay" className="w-14" />
@@ -50,6 +52,7 @@ export default function Footer() {
             />
           </div>
         </div>
+        <Separator />
       </div>
     </footer>
   );

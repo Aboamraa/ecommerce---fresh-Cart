@@ -29,24 +29,24 @@ export default function Product({ product }: { product: ProductType }) {
                 productID={product._id}
                 variant={null}
                 className="!text-primary-foreground hover:!text-main-green transition cursor-pointer w-fit"
-                // size={"icon"}
+                size={"icon"}
               >
                 <span>
                   <ShoppingCart
                     size={28}
-                    className="!text-primary-foreground hover:!text-main-green transition cursor-pointer"
+                    className="!text-primary hover:!text-main-green transition cursor-pointer"
                   />
                 </span>
               </AddToCartButton>
               <Link href={`/Products/${product.id}`}>
                 <Eye
                   size={28}
-                  className="text-primary-foreground hover:text-main-green transition cursor-pointer"
+                  className="text-primary hover:text-main-green transition cursor-pointer"
                 />
               </Link>
               <Heart
                 size={28}
-                className="text-primary-foreground hover:text-main-green transition cursor-pointer"
+                className="text-primary hover:text-main-green transition cursor-pointer"
               />
             </div>
           </div>

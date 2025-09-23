@@ -20,6 +20,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ShippingAddress } from "@/types/payment.types";
+import { Separator } from "@/components/ui/separator";
 export default function OrderMainRow({
   order,
   shippingAddress,
@@ -31,7 +32,7 @@ export default function OrderMainRow({
   return (
     <>
       <Collapsible>
-        <div className="order-container flex justify-between px-8 rounded-xl">
+        <div className="order-container flex justify-between px-8 py-6 rounded-xl main-card-style border-0 shadow-2xs">
           <div className="left-side flex gap-4 items-center">
             <div className="firstProductImageContainer w-1/4">
               <Image
@@ -85,7 +86,9 @@ export default function OrderMainRow({
                 <Button
                   variant={isProductsHidden ? "mainBrighter" : "destructive"}
                   className="cursor-pointer"
-                  onClick={()=>{setIsProductsHidden(!isProductsHidden)}}
+                  onClick={() => {
+                    setIsProductsHidden(!isProductsHidden);
+                  }}
                 >
                   {isProductsHidden ? "Show" : "hide"}
                 </Button>
@@ -94,47 +97,64 @@ export default function OrderMainRow({
           </div>
         </div>
         <CollapsibleContent>
-          <div className="flex pb-4" >
-            <div className="space-y-3 mt-3 flex-4/5">
+          <div className="flex pb-4">
+            <div className="space-y-6 container mt-3 flex-4/5">
               {order.cartItems.map((cartItem) => {
                 return (
-                  <OrderCartMainRow key={cartItem._id} cartItem={cartItem} />
+                  <OrderCartMainRow  key={cartItem._id} cartItem={cartItem} />
                 );
               })}
             </div>
             <div className="self-end flex-1/5 ms-4">
-              <Card>
+              <Card className="main-card-style">
                 <CardHeader>
                   {shippingAddress && (
                     <>
                       <CardTitle className="space-y-2">
-                        <h2 className="font-semibold ">
-                          Shipping
-                        </h2>
+                        <h2 className="font-semibold ">Shipping</h2>
                         <p className="flex text-muted-foreground">
                           {shippingAddress.city} <Dot /> {shippingAddress.phone}
                         </p>
                       </CardTitle>
                       <CardDescription>
-                        <h2 className="font-semibold">
-                          Address
-                        </h2>
+                        <h2 className="font-semibold">Address</h2>
                         <p>{shippingAddress?.details}</p>
                       </CardDescription>
                     </>
                   )}
                 </CardHeader>
-                <div className="w-3/4 bg-gray-200 h-0.5 mx-auto"></div>
+                {/* <div className="w-3/4 bg-gray-200 h-0.5 mx-auto"></div> */}
+                <Separator />
                 <CardContent>
                   <div>
-                    <div className="flex justify-between"><h2 className="font-semibold">items</h2> <p className="text-muted-foreground">{order.cartItems.length}</p></div>
-                    <div className="flex justify-between"><h2 className="font-semibold">Shipping</h2> <p className="text-muted-foreground">{order.shippingPrice}</p></div>
-                    <div className="flex justify-between"><h2 className="font-semibold">Tax</h2> <p className="text-muted-foreground">{order.taxPrice}</p></div>
-                    <div className="flex justify-between"><h2 className="font-semibold">Total</h2> <p className="text-muted-foreground">{order.totalOrderPrice}</p></div>
+                    <div className="flex justify-between">
+                      <h2 className="font-semibold">items</h2>{" "}
+                      <p className="text-muted-foreground">
+                        {order.cartItems.length}
+                      </p>
+                    </div>
+                    <div className="flex justify-between">
+                      <h2 className="font-semibold">Shipping</h2>{" "}
+                      <p className="text-muted-foreground">
+                        {order.shippingPrice}
+                      </p>
+                    </div>
+                    <div className="flex justify-between">
+                      <h2 className="font-semibold">Tax</h2>{" "}
+                      <p className="text-muted-foreground">{order.taxPrice}</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <h2 className="font-semibold">Total</h2>{" "}
+                      <p className="text-muted-foreground">
+                        {order.totalOrderPrice}
+                      </p>
+                    </div>
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="ms-auto" variant={"main"}>Contact</Button>
+                  <Button className="ms-auto" variant={"main"}>
+                    Contact
+                  </Button>
                 </CardFooter>
               </Card>
             </div>

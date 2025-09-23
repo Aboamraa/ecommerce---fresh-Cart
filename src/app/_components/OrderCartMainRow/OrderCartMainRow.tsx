@@ -4,7 +4,7 @@ import React from "react";
 
 export default function OrderCartMainRow({cartItem}:{cartItem:CartProductElementType}) {
   return (
-    <div className="order-container flex justify-between px-8 py-6 rounded-xl bg-slate-50">
+    <div className="order-container  flex justify-between px-8 py-6 rounded-xl main-card-style">
       <div className="left-side flex gap-4 items-center">
         <div className="firstProductImageContainer w-1/5">
           <Image

@@ -9,7 +9,7 @@ export default function Home() {
         <HomeSlider />
       </div>
 
-      <div className="border-y-2  border-gray-200 py-6">
+      <div className="border-y-2  border-accent-foreground/40 py-6">
         <h2 className="text-2xl font-bold mb-4">Browse Popular Categories</h2>
         <CategoriesSlider />
       </div>

@@ -14,11 +14,14 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { signOut, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import Switch from "./../themeSwitch/themeSwitch";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
   //use session is used to get the token (only for client components)
   const { data } = useSession();
   const pathName = usePathname();
+  const { theme, setTheme } = useTheme();
   // console.log(session);
 
   return (
@@ -26,7 +29,14 @@ export default function Navbar() {
       <div className="container flex justify-between items-center">
         <div className="left-dev flex gap-3.5 items-center">
           <Link href={"/"}>
-            <Image src={logo} alt="Fresh Cart logo" width={150} height={150} className="w-auto h-auto" priority />
+            <Image
+              src={logo}
+              alt="Fresh Cart logo"
+              width={150}
+              height={150}
+              className="w-auto h-auto"
+              priority
+            />
           </Link>
           <ul className="flex gap-x-2.5 items-center ">
             <li
@@ -76,6 +86,13 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="right-dev flex gap-2 items-center">
+          <Switch
+            size={0.9}
+            defaultChecked={theme == "dark"}
+            onChange={(checked) => {
+              checked ? setTheme("dark") : setTheme("light");
+            }}
+          />
           <ul className="flex gap-2 items-center text-secondary-foreground/80">
             <li className="nav-link">
               <a href={"Instagram.com"} target="_blank">
