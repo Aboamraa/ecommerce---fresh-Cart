@@ -54,9 +54,11 @@ async function onlinePayment(cartId: string, shippingDetails: checkoutType) {
     );
     // console.log("response from online payment", response);
     return await response.json();
-  } catch (error: any) {
+  } catch (error) {
     console.log("error in online payment api: ", error);
-    throw new Error(error.message);
+    if (error instanceof Error) {
+      throw new Error(error.message);
+    }
   }
 }
 

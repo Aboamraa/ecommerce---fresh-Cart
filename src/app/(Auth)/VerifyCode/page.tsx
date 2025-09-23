@@ -9,10 +9,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  verifyCodeScheme,
-  VerifyCodeType
-} from "@/scheme/scheme";
+import { verifyCodeScheme, VerifyCodeType } from "@/scheme/scheme";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useForm } from "react-hook-form";
@@ -35,8 +32,10 @@ export default function Page() {
       });
       console.log(response.data.message);
       toast.success(response.data.message);
-    } catch (error: any) {
-      toast.error(error.response.data.message, { position: "top-center" });
+    } catch (error) {
+      //Todo:: to be reviewed to add the toast
+
+      // toast.error(error.response.data.message, { position: "top-center" });
       console.log(error, "error...............");
     }
   }

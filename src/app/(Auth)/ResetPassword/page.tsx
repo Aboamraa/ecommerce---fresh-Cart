@@ -36,8 +36,9 @@ export default function Page() {
       });
       console.log(response.data.message);
       toast.success(response.data.message);
-    } catch (error: any) {
-      toast.error(error.response.data.message, { position: "top-center" });
+    } catch (error) {
+      //Todo:: to be reviewed to add the toast
+      // toast.error(error.response.data.message, { position: "top-center" });
       console.log(error, "error...............");
     }
   }

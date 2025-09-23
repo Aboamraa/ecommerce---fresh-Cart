@@ -70,8 +70,12 @@ export default function Checkout() {
       if (response.status == "success") {
         window.location.href = response.session.url;
       }
-    } catch (error: any) {
-      toast.error(error.message);
+    } catch (error) {
+      console.log(error);
+
+      if (error instanceof Error) {
+        toast.error(error.message);
+      }
     }
   }
   return (
