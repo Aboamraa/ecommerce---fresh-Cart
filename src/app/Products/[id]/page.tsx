@@ -12,7 +12,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const relatedProducts: ProductType[] = await getRelatedProducts(
     product.category._id
   );
-  console.log("related products now: ", relatedProducts);
+  // console.log("related products now: ", relatedProducts);
 
   //   console.log(id);
   // console.log(product);
