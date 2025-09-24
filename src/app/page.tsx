@@ -4,7 +4,7 @@ import CategoriesSlider from "./_components/CategoriesSlider/CategoriesSlider";
 import AllProducts from "./_components/AllProducts/AllProducts";
 export default function Home() {
   return (
-    <div className="container my-8 space-y-4">
+    <div className="container mx-auto  my-8 space-y-4">
       <div>
         <HomeSlider />
       </div>

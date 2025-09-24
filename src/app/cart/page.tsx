@@ -53,7 +53,7 @@ export default function Page() {
   } else if (cart.products.length == 0) {
     return (
       <div className="flex flex-col justify-center items-center h-screen bg-gray-300 ">
-        <h3 className="text-4xl font-semibold text-main-green tracking-wide mb-2">
+        <h3 className="text-4xl text-center font-semibold text-main-green tracking-wide mb-2">
           Add some products to buy
         </h3>
         <Link

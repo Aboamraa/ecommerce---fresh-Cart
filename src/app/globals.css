@@ -138,12 +138,12 @@
   }
   .main-card-style {
     @apply bg-card border-[0.5px] border-card-foreground/60 shadow shadow-primary;
-    @apply transition hover:bg-secondary
+    @apply transition hover:bg-secondary;
   }
 }
 
 @utility container {
-  margin: 0 auto;
+  margin-inline: auto;
   padding: 1rem;
   @media (width >= 96rem /* 1536px */) {
     max-width: 86rem /* 1376px */;
