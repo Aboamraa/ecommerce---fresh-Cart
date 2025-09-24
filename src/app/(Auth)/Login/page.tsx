@@ -67,9 +67,9 @@ export default function Page() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handelLogin)}
-          className="flex flex-col gap-6 w-full max-w-lg bg-gray-50 drop-shadow border-2 p-14 pt-10 rounded-xl"
+          className="flex flex-col gap-6 w-full max-w-lg bg-card shadow-xl shadow-card border-2 border-card-foreground/20 p-14 pt-10 rounded-xl"
         >
-          <h2 className="text-4xl font-normal text-main-green/80 tracking-wider text-center mb-4">
+          <h2 className="text-4xl font-semibold text-main-green/80 tracking-wider text-center mb-4">
             Welcome back
           </h2>
           <div>

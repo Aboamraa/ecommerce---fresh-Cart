@@ -46,7 +46,7 @@ export default function Page() {
     }
   }
   return (
-    <div className="container my-8">
+    <div className="container my-8 w-2/3">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handelRegister)}
