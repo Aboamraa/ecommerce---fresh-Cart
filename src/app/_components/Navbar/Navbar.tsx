@@ -118,7 +118,7 @@ export default function Navbar() {
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-6 w-6" />
+                <Menu className="h-6 w-6 text-primary" />
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-64 p-4">

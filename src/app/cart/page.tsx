@@ -1,13 +1,13 @@
 "use client";
 import { clearCart, getCartItems } from "@/api/Cart.api.ts";
 import { Button } from "@/components/ui/button";
-import { CartType } from "@/types/Cart.types";
-import { useEffect, useState } from "react";
+import {  CartType } from "@/types/Cart.types";
+import React, { useEffect, useState } from "react";
 
-import Link from "next/link";
-import { toast } from "sonner";
 import CartItem from "../_components/CartItem/CartItem";
 import Loading from "../loading";
+import Link from "next/link";
+import { toast } from "sonner";
 //TODO::Handel Loading state when clear cart
 export default function Page() {
   // const [cartProducts, setCartProducts] = useState<
@@ -53,7 +53,7 @@ export default function Page() {
   } else if (cart.products.length == 0) {
     return (
       <div className="flex flex-col justify-center items-center h-screen bg-card ">
-        <h3 className="text-4xl font-semibold text-main-green tracking-wide mb-2">
+        <h3 className="text-4xl text-center font-semibold text-main-green tracking-wide mb-2">
           Add some products to buy
         </h3>
         <Link
