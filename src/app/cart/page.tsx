@@ -1,13 +1,13 @@
 "use client";
 import { clearCart, getCartItems } from "@/api/Cart.api.ts";
 import { Button } from "@/components/ui/button";
-import {  CartType } from "@/types/Cart.types";
-import React, { useEffect, useState } from "react";
+import { CartType } from "@/types/Cart.types";
+import { useEffect, useState } from "react";
 
-import CartItem from "../_components/CartItem/CartItem";
-import Loading from "../loading";
 import Link from "next/link";
 import { toast } from "sonner";
+import CartItem from "../_components/CartItem/CartItem";
+import Loading from "../loading";
 //TODO::Handel Loading state when clear cart
 export default function Page() {
   // const [cartProducts, setCartProducts] = useState<
@@ -52,8 +52,8 @@ export default function Page() {
     return <Loading />;
   } else if (cart.products.length == 0) {
     return (
-      <div className="flex flex-col justify-center items-center h-screen bg-gray-300 ">
-        <h3 className="text-4xl text-center font-semibold text-main-green tracking-wide mb-2">
+      <div className="flex flex-col justify-center items-center h-screen bg-card ">
+        <h3 className="text-4xl font-semibold text-main-green tracking-wide mb-2">
           Add some products to buy
         </h3>
         <Link
@@ -66,7 +66,7 @@ export default function Page() {
     );
   }
   return (
-    <div className="container min-h-screen bg-gray-200 drop-shadow rounded-md p-16 my-10 space-y-12">
+    <div className="container min-h-screen bg-secondary drop-shadow rounded-md p-16 my-10 space-y-12">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-4xl  tracking-wide mb-3">Shop Cart</h2>
