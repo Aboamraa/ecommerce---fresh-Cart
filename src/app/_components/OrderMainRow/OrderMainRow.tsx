@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Image from "next/image";
-
 import { Dot } from "lucide-react";
 import {
   Collapsible,
@@ -21,6 +20,7 @@ import {
 } from "@/components/ui/card";
 import { ShippingAddress } from "@/types/payment.types";
 import { Separator } from "@/components/ui/separator";
+
 export default function OrderMainRow({
   order,
   shippingAddress,
@@ -29,126 +29,133 @@ export default function OrderMainRow({
   shippingAddress?: ShippingAddress;
 }) {
   const [isProductsHidden, setIsProductsHidden] = useState(true);
+
   return (
-    <>
-      <Collapsible>
-        <div className="order-container flex justify-between px-8 py-6 rounded-xl main-card-style border-0 shadow-2xs">
-          <div className="left-side flex gap-4 items-center">
-            <div className="firstProductImageContainer w-1/4">
-              <Image
-                src={order.cartItems[0].product.imageCover}
-                alt={order.cartItems[0].product.title}
-                width={200}
-                height={200}
-                className="w-full rounded-xl"
-              />
-            </div>
-            <div>
-              <h3 className="font-semibold">Order #{order.id}</h3>
-              <p className="flex">
-                {order.user.name} <Dot /> {order.user.phone}
-              </p>
-              <p className="createdAt-Date">
-                {new Date(order.createdAt)
-                  .toLocaleString("en-GB", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    hour12: true,
-                  })
-                  .toUpperCase()}
-              </p>
-            </div>
+    <Collapsible>
+      {/* Order Header Row */}
+      <div className="order-container container flex flex-col md:flex-row justify-between px-4 sm:px-6 md:px-8 py-4 sm:py-6 rounded-xl main-card-style border-0 shadow-2xs gap-4">
+        {/* Left Side */}
+        <div className="left-side flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-start sm:items-center w-full md:w-auto">
+          <div className="firstProductImageContainer w-full sm:w-28 md:w-32 flex-shrink-0">
+            <Image
+              src={order.cartItems[0].product.imageCover}
+              alt={order.cartItems[0].product.title}
+              width={200}
+              height={200}
+              className="w-full aspect-square rounded-xl object-cover"
+            />
           </div>
-          <div className="right-side flex gap-3 items-center">
-            <div>
-              <h3 className="font-semibold">{order.totalOrderPrice} EGP</h3>
-              <p>{order.paymentMethodType}</p>
-            </div>
-            <div className="flex flex-col gap-3 items-center">
-              <Badge
-                variant={order.isPaid ? "success" : "warning"}
-                className="px-4 py-2"
-              >
-                {order.isPaid ? "Paid" : "Not Paid"}
-              </Badge>
-              <Badge
-                variant={order.isDelivered ? "success" : "danger"}
-                className="px-4 py-2"
-              >
-                {order.isDelivered ? "Delivered" : "Not Delivered"}
-              </Badge>
-            </div>
-            <div>
-              <CollapsibleTrigger>
-                <Button
-                  variant={isProductsHidden ? "mainBrighter" : "destructive"}
-                  className="cursor-pointer"
-                  onClick={() => {
-                    setIsProductsHidden(!isProductsHidden);
-                  }}
-                >
-                  {isProductsHidden ? "Show" : "hide"}
-                </Button>
-              </CollapsibleTrigger>
-            </div>
+          <div>
+            <h3 className="font-semibold text-base sm:text-lg">
+              Order #{order.id}
+            </h3>
+            <p className="flex flex-wrap gap-1 text-sm sm:text-base">
+              {order.user.name} <Dot /> {order.user.phone}
+            </p>
+            <p className="createdAt-Date text-sm text-muted-foreground">
+              {new Date(order.createdAt)
+                .toLocaleString("en-GB", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  hour12: true,
+                })
+                .toUpperCase()}
+            </p>
           </div>
         </div>
-        <CollapsibleContent>
-          <div className="flex pb-4">
-            <div className="space-y-6 container mt-3 flex-4/5">
-              {order.cartItems.map((cartItem) => {
-                return (
-                  <OrderCartMainRow  key={cartItem._id} cartItem={cartItem} />
-                );
-              })}
-            </div>
-            <div className="self-end flex-1/5 ms-4">
+
+        {/* Right Side */}
+        <div className="right-side flex flex-col md:flex-row gap-3 items-stretch md:items-center w-full md:w-auto">
+          <div className="flex flex-col items-start md:items-end">
+            <h3 className="font-semibold text-base sm:text-lg">
+              {order.totalOrderPrice} EGP
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              {order.paymentMethodType}
+            </p>
+          </div>
+
+          <div className="flex flex-row md:flex-col gap-2 sm:gap-3 items-center">
+            <Badge
+              variant={order.isPaid ? "success" : "warning"}
+              className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm"
+            >
+              {order.isPaid ? "Paid" : "Not Paid"}
+            </Badge>
+            <Badge
+              variant={order.isDelivered ? "success" : "danger"}
+              className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm"
+            >
+              {order.isDelivered ? "Delivered" : "Not Delivered"}
+            </Badge>
+          </div>
+
+          <div className="w-full md:w-fit">
+            <CollapsibleTrigger className="w-full md:w-fit">
+              <Button
+                variant={isProductsHidden ? "mainBrighter" : "destructive"}
+                className="cursor-pointer w-full md:w-fit"
+                onClick={() => setIsProductsHidden(!isProductsHidden)}
+              >
+                {isProductsHidden ? "Show" : "Hide"}
+              </Button>
+            </CollapsibleTrigger>
+          </div>
+        </div>
+      </div>
+
+      {/* Collapsible Products + Shipping */}
+      <CollapsibleContent>
+        <div className="container flex flex-col lg:flex-row gap-6 pb-4 mt-3">
+          {/* Products List */}
+          <div className="flex-1 space-y-4">
+            {order.cartItems.map((cartItem) => (
+              <OrderCartMainRow key={cartItem._id} cartItem={cartItem} />
+            ))}
+          </div>
+
+          {/* Shipping Summary */}
+          {shippingAddress && (
+            <div className="w-full lg:w-1/3">
               <Card className="main-card-style">
                 <CardHeader>
-                  {shippingAddress && (
-                    <>
-                      <CardTitle className="space-y-2">
-                        <h2 className="font-semibold ">Shipping</h2>
-                        <p className="flex text-muted-foreground">
-                          {shippingAddress.city} <Dot /> {shippingAddress.phone}
-                        </p>
-                      </CardTitle>
-                      <CardDescription>
-                        <h2 className="font-semibold">Address</h2>
-                        <p>{shippingAddress?.details}</p>
-                      </CardDescription>
-                    </>
-                  )}
+                  <CardTitle className="space-y-2">
+                    <h2 className="font-semibold">Shipping</h2>
+                    <p className="flex text-sm sm:text-base text-muted-foreground flex-wrap gap-1">
+                      {shippingAddress.city} <Dot /> {shippingAddress.phone}
+                    </p>
+                  </CardTitle>
+                  <CardDescription>
+                    <h2 className="font-semibold">Address</h2>
+                    <p>{shippingAddress.details}</p>
+                  </CardDescription>
                 </CardHeader>
-                {/* <div className="w-3/4 bg-gray-200 h-0.5 mx-auto"></div> */}
                 <Separator />
-                <CardContent>
-                  <div>
-                    <div className="flex justify-between">
-                      <h2 className="font-semibold">items</h2>{" "}
-                      <p className="text-muted-foreground">
-                        {order.cartItems.length}
-                      </p>
-                    </div>
-                    <div className="flex justify-between">
-                      <h2 className="font-semibold">Shipping</h2>{" "}
-                      <p className="text-muted-foreground">
-                        {order.shippingPrice}
-                      </p>
-                    </div>
-                    <div className="flex justify-between">
-                      <h2 className="font-semibold">Tax</h2>{" "}
-                      <p className="text-muted-foreground">{order.taxPrice}</p>
-                    </div>
-                    <div className="flex justify-between">
-                      <h2 className="font-semibold">Total</h2>{" "}
-                      <p className="text-muted-foreground">
-                        {order.totalOrderPrice}
-                      </p>
-                    </div>
+                <CardContent className="space-y-2">
+                  <div className="flex justify-between">
+                    <h2 className="font-semibold">Items</h2>
+                    <p className="text-muted-foreground">
+                      {order.cartItems.length}
+                    </p>
+                  </div>
+                  <div className="flex justify-between">
+                    <h2 className="font-semibold">Shipping</h2>
+                    <p className="text-muted-foreground">
+                      {order.shippingPrice}
+                    </p>
+                  </div>
+                  <div className="flex justify-between">
+                    <h2 className="font-semibold">Tax</h2>
+                    <p className="text-muted-foreground">{order.taxPrice}</p>
+                  </div>
+                  <div className="flex justify-between">
+                    <h2 className="font-semibold">Total</h2>
+                    <p className="text-muted-foreground">
+                      {order.totalOrderPrice}
+                    </p>
                   </div>
                 </CardContent>
                 <CardFooter>
@@ -158,9 +165,9 @@ export default function OrderMainRow({
                 </CardFooter>
               </Card>
             </div>
-          </div>
-        </CollapsibleContent>
-      </Collapsible>
-    </>
+          )}
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
   );
 }
